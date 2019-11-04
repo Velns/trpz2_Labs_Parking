@@ -1,0 +1,35 @@
+﻿<catel:DataWindow
+    x:Class="Parking.Views.SignInView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catel="http://catel.codeplex.com"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:views="clr-namespace:Parking.Views"
+    Width="240"
+    Height="150"
+    Background="DarkGray">
+
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <TextBox
+                Width="150"
+                Height="23"
+                Margin="0,5,0,0"
+                HorizontalContentAlignment="Center"
+                Text="Login" />
+            <PasswordBox
+                Width="150"
+                Height="23"
+                Margin="0,5,0,0"
+                HorizontalContentAlignment="Center"
+                Password="Password" />
+            <Button Margin="0,10,0,0" Content="Sign In" />
+
+        </StackPanel>
+
+    </Grid>
+
+</catel:DataWindow>
