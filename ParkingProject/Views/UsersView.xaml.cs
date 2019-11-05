@@ -1,8 +1,8 @@
 ﻿namespace Parking.Views
 {
-    public partial class UserView
+    public partial class UsersView
     {
-        public UserView()
+        public UsersView()
         {
             InitializeComponent();
         }

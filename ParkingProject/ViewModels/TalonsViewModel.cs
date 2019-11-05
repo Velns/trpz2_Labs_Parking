@@ -1,7 +1,10 @@
 ﻿namespace Parking.ViewModels
 {
     using Catel.MVVM;
+    using System.Collections.ObjectModel;
     using System.Threading.Tasks;
+    using Parking.Models;
+    using Catel.Data;
 
     public class TalonsViewModel : ViewModelBase
     {
@@ -11,10 +14,70 @@
 
         public override string Title { get { return "View model title"; } }
 
-        // TODO: Register models with the vmpropmodel codesnippet
-        // TODO: Register view model properties with the vmprop or vmpropviewmodeltomodel codesnippets
-        // TODO: Register commands with the vmcommand or vmcommandwithcanexecute codesnippets
-        
+        public ObservableCollection<Talon> TalonsColection
+        {
+            get { return GetValue<ObservableCollection<Talon>>(TalonsColectionProperty); }
+            set { SetValue(TalonsColectionProperty, value); }
+        }
+        public static readonly PropertyData TalonsColectionProperty = RegisterProperty(nameof(TalonsColection), typeof(ObservableCollection<Talon>), null);
+
+        public Talon SelectedTalon
+        {
+            get { return GetValue<Talon>(SelectedTalonProperty); }
+            set { SetValue(SelectedTalonProperty, value); }
+        }
+        public static readonly PropertyData SelectedTalonProperty = RegisterProperty(nameof(SelectedTalon), typeof(Talon), null);
+
+
+        private Command _addTalon;
+        public Command AddTalon
+        {
+            get
+            {
+                return _addTalon ?? (_addTalon = new Command(() =>
+                {
+                    var viewModel = new TalonViewModel();
+
+                    _uiVisualizerService.ShowDialog(viewModel, (sender, e) =>
+                    {
+                        if (e.Result ?? false)
+                        {
+                            TalonsCollection.Add(viewModel.TalonObject);
+                        }
+                    });
+                }));
+            }
+        }
+
+
+        private Command _editTalon;
+        public Command EditTalon
+        {
+            get
+            {
+                return _editTalon ?? (_editTalon = new Command(() =>
+                {
+                    var viewModel = new TalonViewModel(SelectedTalon);
+                    _uiVisualizerService.ShowDialog(viewModel);
+                },
+                () => SelectedTalon != null));
+            }
+        }
+
+
+        private Command _removeTalon;
+        public Command RemoveTalon
+        {
+            get
+            {
+                return _removeTalon ?? (_removeTalon = new Command(async () =>
+                {
+                    TalonsCollection.Remove(SelectedTalon);
+                },
+                () => SelectedTalon != null));
+            }
+        }
+
         protected override async Task InitializeAsync()
         {
             await base.InitializeAsync();

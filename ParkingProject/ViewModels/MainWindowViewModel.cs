@@ -26,7 +26,7 @@ namespace Parking.ViewModels
         private readonly IViewModel feedBackViewModel;
         private readonly IViewModel signInViewModel;
         private readonly IViewModel talonsViewModel;
-        private readonly IViewModel userViewModel;
+        private readonly IViewModel usersViewModel;
 
         public override string Title { get { return "Parking"; } }
 
@@ -44,13 +44,13 @@ namespace Parking.ViewModels
         }
         public static readonly PropertyData OpacityViewProperty = RegisterProperty(nameof(OpacityView), typeof(double), null);
 
-        public Command ShowUserView
+        public Command ShowUsersView
         {
             get
             {
                 return new Command(() =>
                 {
-                    SlowChangeView(userViewModel);
+                    SlowChangeView(usersViewModel);
                 });
             }
         }
@@ -94,12 +94,13 @@ namespace Parking.ViewModels
             feedBackViewModel = new FeedBackViewModel();
             signInViewModel = new SignInViewModel();
             talonsViewModel = new TalonsViewModel();
-            userViewModel = new UserViewModel();
+            usersViewModel = new UsersViewModel();
 
-            var a = new SignInViewModel();
+            var user = new User() { Login="Login",Pass="Pass"};
+            var a = new SignInViewModel(user);
             _uiVisualizerService.ShowDialog(a);
 
-            CurrentViewModel = userViewModel;
+            CurrentViewModel = usersViewModel;
         }
 
         private async void SlowChangeView(IViewModel newViewModel)

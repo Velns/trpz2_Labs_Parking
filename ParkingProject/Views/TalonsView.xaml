@@ -7,12 +7,68 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="43" />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        
-        <Label Grid.Row="0" Content="{Binding Title}" />
-        <Label Grid.Row="1" Content="Talons" />
+
+        <ListView
+            Grid.Row="1"
+            Margin="10"
+            ItemsSource="{Binding CarsCollection}"
+            SelectedItem="{Binding SelectedCar}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="120"
+                        DisplayMemberBinding="{Binding Parking}"
+                        Header="Parking" />
+                    <GridViewColumn
+                        Width="120"
+                        DisplayMemberBinding="{Binding Place}"
+                        Header="Place" />
+                    <GridViewColumn
+                        Width="120"
+                        DisplayMemberBinding="{Binding CarNumber}"
+                        Header="Number of car" />
+                    <GridViewColumn
+                        Width="120"
+                        DisplayMemberBinding="{Binding StarDate}"
+                        Header="Date Start" />
+                    <GridViewColumn
+                        Width="120"
+                        DisplayMemberBinding="{Binding StopDate}"
+                        Header="Date stop" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ToolBar Grid.Row="0">
+            <Button
+                Width="75"
+                Height="22"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Command="{Binding AddCar}"
+                Content="Add"
+                Focusable="False" />
+            <Button
+                Width="75"
+                Height="22"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Command="{Binding EditCar}"
+                Content="Edit"
+                Focusable="False" />
+            <Button
+                Width="75"
+                Height="22"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Command="{Binding RemoveCar}"
+                Content="Remove"
+                Focusable="False" />
+
+        </ToolBar>
+
     </Grid>
-    
+
 </catel1:UserControl>

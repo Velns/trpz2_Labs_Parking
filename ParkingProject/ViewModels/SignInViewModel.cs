@@ -18,20 +18,33 @@
 
         public override string Title { get { return "Sign In"; } }
 
-        public string Login
+
+        [Model]
+        public User UserObject
         {
-            get { return GetValue<string>(LoginProperty); }
-            set { SetValue(LoginProperty, value); }
+            get { return GetValue<User>(UserObjectProperty); }
+            private set { SetValue(UserObjectProperty, value); }
         }
-        public static readonly PropertyData LoginProperty = RegisterProperty(nameof(Login), typeof(string), null);
 
-        public string Pass
+        public static readonly PropertyData UserObjectProperty = RegisterProperty(nameof(UserObject), typeof(User));
+
+
+        [ViewModelToModel("UserObject", "Login")]
+        public string UserLogin
         {
-            get { return GetValue<string>(PassProperty); }
-            set { SetValue(PassProperty, value); }
-        }        
-        public static readonly PropertyData PassProperty = RegisterProperty(nameof(Pass), typeof(string), null);
+            get { return GetValue<string>(UserLoginProperty); }
+            set { SetValue(UserLoginProperty, value); }
+        }
+        public static readonly PropertyData UserLoginProperty = RegisterProperty(nameof(UserLogin), typeof(string));
+        
+        [ViewModelToModel("UserObject", "Pass")]
+        public string UserPass
+        {
+            get { return GetValue<string>(UserPassProperty); }
+            set { SetValue(UserPassProperty, value); }
+        }
 
+        public static readonly PropertyData UserPassProperty = RegisterProperty(nameof(UserPass), typeof(string));
 
         public Command SignIn
         {
@@ -39,7 +52,7 @@
             {
                 return new Command(() =>
                 {
-                    CheckPass();
+                    //CheckPass();
                 });
             }
         }
@@ -47,11 +60,11 @@
         // TODO: Register view model properties with the vmprop or vmpropviewmodeltomodel codesnippets
         // TODO: Register commands with the vmcommand or vmcommandwithcanexecute codesnippets
 
-        private async void CheckPass()
-        {
-            if (Login == "Login" && Pass == "Password")
-                await base.CloseAsync();
-        }
+        //private async void CheckPass()
+        //{
+        //    if (Login == "Login" && Pass == "Password")
+        //        await base.CloseAsync();
+        //}
 
         protected override async Task InitializeAsync()
         {
@@ -65,5 +78,11 @@
 
             await base.CloseAsync();
         }
+
+        public SignInViewModel(User user= null)
+        {
+            UserObject = user ?? new User();
+        }
+
     }
 }

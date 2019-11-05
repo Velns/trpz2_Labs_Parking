@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Parking.Models
 {
-    class Talon : ModelBase
+    public class Talon : ModelBase
     {
     }
 }

@@ -39,5 +39,19 @@ namespace Parking.Models
             set { SetValue(PhoneNumProperty, value); }
         }
         public static readonly PropertyData PhoneNumProperty = RegisterProperty(nameof(PhoneNum), typeof(string), null);
+
+        protected override void ValidateFields(List<IFieldValidationResult> validationResults)
+        {
+            if (Login != "Login")
+            {
+                validationResults.Add(FieldValidationResult.CreateError(LoginProperty, "Wrong Login"));
+            }
+
+            if (Pass != "Pass") 
+            {
+                validationResults.Add(FieldValidationResult.CreateError(PassProperty, "Wrong Password"));
+            }
+        }
+
     }
 }

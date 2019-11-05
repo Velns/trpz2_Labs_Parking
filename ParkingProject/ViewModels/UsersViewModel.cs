@@ -6,11 +6,11 @@
     using System.Threading.Tasks;
     using Parking.Models; 
 
-    public class UserViewModel : ViewModelBase
+    public class UsersViewModel : ViewModelBase
     {        
        // User testUser = new User();
 
-        public UserViewModel(User user = null)
+        public UsersViewModel(User user = null)
         {
             CurUser = user ?? new User();
         }
@@ -44,7 +44,6 @@
         {
             await base.InitializeAsync();
         }
-
         protected override async Task CloseAsync()
         {
             await base.CloseAsync();
