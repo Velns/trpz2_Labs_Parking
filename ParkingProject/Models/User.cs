@@ -10,6 +10,21 @@ namespace Parking.Models
     public class User : ModelBase
     {
 
+        public string Login
+        {
+            get { return GetValue<string>(LoginProperty); }
+            set { SetValue(LoginProperty, value); }
+        }
+        public static readonly PropertyData LoginProperty = RegisterProperty(nameof(Login), typeof(string), null);
+
+
+        public string Pass
+        {
+            get { return GetValue<string>(PassProperty); }
+            set { SetValue(PassProperty, value); }
+        }
+        public static readonly PropertyData PassProperty = RegisterProperty(nameof(Pass), typeof(string), null);
+
         public string Name
         {
             get { return GetValue<string>(NameProperty); }

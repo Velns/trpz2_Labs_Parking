@@ -19,14 +19,17 @@
                 Height="23"
                 Margin="0,5,0,0"
                 HorizontalContentAlignment="Center"
-                Text="Login" />
-            <PasswordBox
+                Text="{Binding Login}" />
+            <TextBox
                 Width="150"
                 Height="23"
                 Margin="0,5,0,0"
                 HorizontalContentAlignment="Center"
-                Password="Password" />
-            <Button Margin="0,10,0,0" Content="Sign In" />
+                Text="{Binding Pass}" />
+            <Button
+                Margin="0,10,0,0"
+                Command="{Binding SignIn}"
+                Content="Sign In" />
 
         </StackPanel>
 

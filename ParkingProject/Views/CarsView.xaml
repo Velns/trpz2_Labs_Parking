@@ -5,19 +5,63 @@
     xmlns:catel="http://schemas.catelproject.com"
     xmlns:catel1="http://catel.codeplex.com">
 
+
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
         <ListView
-            Height="100"
-            Margin="0,39,0,0"
-            VerticalAlignment="Top"
-            ItemsSource="{Binding userList}">
+            Grid.Row="1"
+            Margin="10"
+            ItemsSource="{Binding CarsCollection}"
+            SelectedItem="{Binding SelectedCar}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">Name</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=PhoneNum}">PhoneNum</GridViewColumn>
+                    <GridViewColumn
+                        Width="120"
+                        DisplayMemberBinding="{Binding Number}"
+                        Header="Number" />
+                    <GridViewColumn
+                        Width="120"
+                        DisplayMemberBinding="{Binding Model}"
+                        Header="Model" />
+                    <GridViewColumn
+                        Width="120"
+                        DisplayMemberBinding="{Binding Color}"
+                        Header="Color" />
                 </GridView>
             </ListView.View>
         </ListView>
-    </Grid>
+        <ToolBar Grid.Row="0">
+            <Button
+                Width="75"
+                Height="22"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Command="{Binding AddCar}"
+                Content="Add"
+                Focusable="False" />
+            <Button
+                Width="75"
+                Height="22"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Command="{Binding EditCar}"
+                Content="Edit"
+                Focusable="False" />
+            <Button
+                Width="75"
+                Height="22"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Command="{Binding RemoveCar}"
+                Content="Remove"
+                Focusable="False" />
 
+        </ToolBar>
+
+    </Grid>
 </catel1:UserControl>

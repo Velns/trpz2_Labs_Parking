@@ -90,14 +90,14 @@ namespace Parking.ViewModels
             _uiVisualizerService = uiVisualizerService;
             _messageService = messageService;
 
-            carsViewModel = new CarsViewModel();
+            carsViewModel = new CarsViewModel(_uiVisualizerService);
             feedBackViewModel = new FeedBackViewModel();
             signInViewModel = new SignInViewModel();
             talonsViewModel = new TalonsViewModel();
             userViewModel = new UserViewModel();
 
-            var a = new SignInView();
-            a.ShowDialog();
+            var a = new SignInViewModel();
+            _uiVisualizerService.ShowDialog(a);
 
             CurrentViewModel = userViewModel;
         }
