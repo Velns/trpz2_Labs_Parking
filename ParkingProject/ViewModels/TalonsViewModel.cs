@@ -5,22 +5,26 @@
     using System.Threading.Tasks;
     using Parking.Models;
     using Catel.Data;
+    using Catel.Services;
 
     public class TalonsViewModel : ViewModelBase
     {
-        public TalonsViewModel(/* dependency injection here */)
+        private readonly IUIVisualizerService _uiVisualizerService;
+        public TalonsViewModel(/* dependency injection here */IUIVisualizerService uiVisualizerService)
         {
+            _uiVisualizerService = uiVisualizerService;
         }
 
         public override string Title { get { return "View model title"; } }
 
-        public ObservableCollection<Talon> TalonsColection
+
+        public ObservableCollection<Talon> TalonsCollection
         {
             get { return GetValue<ObservableCollection<Talon>>(TalonsColectionProperty); }
             set { SetValue(TalonsColectionProperty, value); }
         }
-        public static readonly PropertyData TalonsColectionProperty = RegisterProperty(nameof(TalonsColection), typeof(ObservableCollection<Talon>), null);
 
+        public static readonly PropertyData TalonsColectionProperty = RegisterProperty(nameof(TalonsCollection), typeof(ObservableCollection<Talon>), null);
         public Talon SelectedTalon
         {
             get { return GetValue<Talon>(SelectedTalonProperty); }

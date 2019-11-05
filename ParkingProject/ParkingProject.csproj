@@ -109,6 +109,7 @@
     <Compile Include="ViewModels\FeedBackViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
     <Compile Include="ViewModels\TalonsViewModel.cs" />
+    <Compile Include="ViewModels\TalonViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
     <Compile Include="Views\CarsView.xaml.cs">
       <DependentUpon>CarsView.xaml</DependentUpon>
@@ -124,6 +125,9 @@
     </Compile>
     <Compile Include="Views\TalonsView.xaml.cs">
       <DependentUpon>TalonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TalonView.xaml.cs">
+      <DependentUpon>TalonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
@@ -161,6 +165,10 @@
     <Page Include="Views\TalonsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TalonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UsersView.xaml">
       <SubType>Designer</SubType>

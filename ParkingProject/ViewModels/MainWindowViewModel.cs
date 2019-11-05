@@ -93,7 +93,7 @@ namespace Parking.ViewModels
             carsViewModel = new CarsViewModel(_uiVisualizerService);
             feedBackViewModel = new FeedBackViewModel();
             signInViewModel = new SignInViewModel();
-            talonsViewModel = new TalonsViewModel();
+            talonsViewModel = new TalonsViewModel(_uiVisualizerService);
             usersViewModel = new UsersViewModel();
 
             var user = new User() { Login="Login",Pass="Pass"};
