@@ -13,6 +13,7 @@
         public TalonsViewModel(/* dependency injection here */IUIVisualizerService uiVisualizerService)
         {
             _uiVisualizerService = uiVisualizerService;
+            TalonsCollection = new ObservableCollection<Talon>();
         }
 
         public override string Title { get { return "View model title"; } }
@@ -23,8 +24,8 @@
             get { return GetValue<ObservableCollection<Talon>>(TalonsColectionProperty); }
             set { SetValue(TalonsColectionProperty, value); }
         }
-
         public static readonly PropertyData TalonsColectionProperty = RegisterProperty(nameof(TalonsCollection), typeof(ObservableCollection<Talon>), null);
+
         public Talon SelectedTalon
         {
             get { return GetValue<Talon>(SelectedTalonProperty); }
@@ -88,7 +89,6 @@
 
             // TODO: subscribe to events here
         }
-
         protected override async Task CloseAsync()
         {
             // TODO: unsubscribe from events here

@@ -14,25 +14,25 @@
         <ListView
             Grid.Row="1"
             Margin="10"
-            ItemsSource="{Binding CarsCollection}"
-            SelectedItem="{Binding SelectedCar}">
+            ItemsSource="{Binding TalonsCollection}"
+            SelectedItem="{Binding SelectedTalon}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
                         Width="120"
-                        DisplayMemberBinding="{Binding Parking}"
-                        Header="Parking" />
+                        DisplayMemberBinding="{Binding TalonNumber}"
+                        Header="Number of talon" />
                     <GridViewColumn
                         Width="120"
-                        DisplayMemberBinding="{Binding Place}"
-                        Header="Place" />
+                        DisplayMemberBinding="{Binding PlaceNumber}"
+                        Header="Place num" />
                     <GridViewColumn
                         Width="120"
-                        DisplayMemberBinding="{Binding CarNumber}"
-                        Header="Number of car" />
+                        DisplayMemberBinding="{Binding TalonNumOfCar}"
+                        Header="Number of car" />                    
                     <GridViewColumn
                         Width="120"
-                        DisplayMemberBinding="{Binding StarDate}"
+                        DisplayMemberBinding="{Binding StartDate}"
                         Header="Date Start" />
                     <GridViewColumn
                         Width="120"
@@ -47,7 +47,7 @@
                 Height="22"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Command="{Binding AddCar}"
+                Command="{Binding AddTalon}"
                 Content="Add"
                 Focusable="False" />
             <Button
@@ -55,7 +55,7 @@
                 Height="22"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Command="{Binding EditCar}"
+                Command="{Binding EditTalon}"
                 Content="Edit"
                 Focusable="False" />
             <Button
@@ -63,7 +63,7 @@
                 Height="22"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Command="{Binding RemoveCar}"
+                Command="{Binding RemoveTalon}"
                 Content="Remove"
                 Focusable="False" />
 

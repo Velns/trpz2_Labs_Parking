@@ -40,7 +40,6 @@
             get { return GetValue<string>(CarColorProperty); }
             set { SetValue(CarColorProperty, value); }
         }
-
         public static readonly PropertyData CarColorProperty = RegisterProperty(nameof(CarColor), typeof(string));
 
         public CarViewModel(Car car = null)
