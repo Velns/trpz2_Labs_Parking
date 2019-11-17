@@ -33,24 +33,24 @@
             get { return GetValue<string >(nameProperty); }
             set { SetValue(nameProperty, value); }
         }
-
         public static readonly PropertyData nameProperty = RegisterProperty(nameof(TalonNumber), typeof(string ));
 
+
         [ViewModelToModel("TalonObject", "CarNumber")]
-        public string TalonNumOfCar
+        public string TalonCarNumber
         {
-            get { return GetValue<string>(TalonNumOfCarProperty); }
-            set { SetValue(TalonNumOfCarProperty, value); }
+            get { return GetValue<string>(TalonCarNumberProperty); }
+            set { SetValue(TalonCarNumberProperty, value); }
         }
-        public static readonly PropertyData TalonNumOfCarProperty = RegisterProperty(nameof(TalonNumOfCar), typeof(string));
-        
+        public static readonly PropertyData TalonCarNumberProperty = RegisterProperty(nameof(TalonCarNumber), typeof(string));
+
         [ViewModelToModel("TalonObject", "Place")]
-        public int TalonPlace
+        public int TalonPlaceNumber
         {
-            get { return GetValue<int>(TalonPlaceProperty); }
-            set { SetValue(TalonPlaceProperty, value); }
+            get { return GetValue<int>(PlaceNumberProperty); }
+            set { SetValue(PlaceNumberProperty, value); }
         }
-        public static readonly PropertyData TalonPlaceProperty = RegisterProperty(nameof(TalonPlace), typeof(int), null);
+        public static readonly PropertyData PlaceNumberProperty = RegisterProperty(nameof(TalonPlaceNumber), typeof(int));
 
         [ViewModelToModel("TalonObject", "StartDate")]
         public string TalonStartDate

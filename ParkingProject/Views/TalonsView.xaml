@@ -20,15 +20,15 @@
                 <GridView>
                     <GridViewColumn
                         Width="120"
-                        DisplayMemberBinding="{Binding TalonNumber}"
+                        DisplayMemberBinding="{Binding Number}"
                         Header="Number of talon" />
                     <GridViewColumn
                         Width="120"
-                        DisplayMemberBinding="{Binding PlaceNumber}"
+                        DisplayMemberBinding="{Binding Place}"
                         Header="Place num" />
                     <GridViewColumn
                         Width="120"
-                        DisplayMemberBinding="{Binding TalonNumOfCar}"
+                        DisplayMemberBinding="{Binding CarNumber}"
                         Header="Number of car" />                    
                     <GridViewColumn
                         Width="120"

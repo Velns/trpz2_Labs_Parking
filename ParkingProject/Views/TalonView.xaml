@@ -50,7 +50,7 @@
             Grid.Row="2"
             Grid.Column="1"
             Margin="10,11,10,6"
-            Text="{Binding CarNumber}"
+            Text="{Binding TalonCarNumber}"
             TextWrapping="Wrap"/>
         <Label
             Grid.Row="3"

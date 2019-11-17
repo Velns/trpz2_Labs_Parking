@@ -18,7 +18,6 @@
 
         public override string Title { get { return "View model title"; } }
 
-
         public ObservableCollection<Talon> TalonsCollection
         {
             get { return GetValue<ObservableCollection<Talon>>(TalonsColectionProperty); }
@@ -32,7 +31,6 @@
             set { SetValue(SelectedTalonProperty, value); }
         }
         public static readonly PropertyData SelectedTalonProperty = RegisterProperty(nameof(SelectedTalon), typeof(Talon), null);
-
 
         private Command _addTalon;
         public Command AddTalon
@@ -54,7 +52,6 @@
             }
         }
 
-
         private Command _editTalon;
         public Command EditTalon
         {
@@ -68,7 +65,6 @@
                 () => SelectedTalon != null));
             }
         }
-
 
         private Command _removeTalon;
         public Command RemoveTalon

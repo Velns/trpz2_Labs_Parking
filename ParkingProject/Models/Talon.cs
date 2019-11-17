@@ -23,14 +23,14 @@ namespace Parking.Models
             set { SetValue(NumberProperty, value); }
         }
         public static readonly PropertyData NumberProperty = RegisterProperty(nameof(Number), typeof(string), null);
-
+        
         public int Place
         {
             get { return GetValue<int>(PlaceProperty); }
             set { SetValue(PlaceProperty, value); }
         }
         public static readonly PropertyData PlaceProperty = RegisterProperty(nameof(Place), typeof(int), null);
-
+        
         public string CarNumber
         {
             get { return GetValue<string>(CarNumberProperty); }
@@ -38,15 +38,13 @@ namespace Parking.Models
         }
         public static readonly PropertyData CarNumberProperty = RegisterProperty(nameof(CarNumber), typeof(string), null);
 
-
         public string StartDate
         {
             get { return GetValue<string>(StartDateProperty); }
             set { SetValue(StartDateProperty, value); }
         }
         public static readonly PropertyData StartDateProperty = RegisterProperty(nameof(StartDate), typeof(string), null);
-
-
+        
         public string StopDate
         {
             get { return GetValue<string>(StopDateProperty); }
